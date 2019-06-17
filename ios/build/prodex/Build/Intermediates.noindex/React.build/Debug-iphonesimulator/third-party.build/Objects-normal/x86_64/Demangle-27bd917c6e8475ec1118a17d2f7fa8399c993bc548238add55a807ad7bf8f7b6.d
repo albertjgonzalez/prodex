@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Demangle.cpp \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Demangle.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/FBString.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/CppAttributes.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Portability.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/portability/Config.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/CPortability.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Traits.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/Hash.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Utility.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/functional/ApplyTuple.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/functional/Invoke.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Preprocessor.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/SpookyHashV1.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/hash/SpookyHashV2.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Bits.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/ConstexprMath.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Assume.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/portability/Builtins.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/lang/Exception.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/memory/Malloc.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/memory/detail/MallocImpl.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/third-party/folly-2018.10.22.00/folly/detail/Demangle.h

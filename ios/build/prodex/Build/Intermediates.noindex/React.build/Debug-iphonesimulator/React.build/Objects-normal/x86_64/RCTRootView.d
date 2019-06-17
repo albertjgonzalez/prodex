@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTRootView.m \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTRootViewDelegate.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTRootViewInternal.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTKeyCommands.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTRootContentView.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/RCTView.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTTouchHandler.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Modules/RCTUIManager.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/RCTViewManager.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/Albert/Documents/Code/Projects/prodex/ios/build/prodex/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/Albert/Documents/Code/Projects/prodex/ios/build/prodex/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/Albert/Documents/Code/Projects/prodex/ios/build/prodex/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/Albert/Documents/Code/Projects/prodex/ios/build/prodex/Build/Products/Debug-iphonesimulator/include/yoga/YGValue.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Views/UIView+React.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Modules/RCTUIManagerUtils.h

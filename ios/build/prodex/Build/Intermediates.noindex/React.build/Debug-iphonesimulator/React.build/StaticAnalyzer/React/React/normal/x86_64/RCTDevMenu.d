@@ -1,0 +1,18 @@
+dependencies: \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/DevSupport/RCTDevMenu.m \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/DevSupport/RCTDevMenu.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Modules/RCTDevSettings.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTKeyCommands.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/Albert/Documents/Code/Projects/prodex/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h
