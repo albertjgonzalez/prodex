@@ -42,7 +42,7 @@ export default class App extends Component {
                value={this.state.password}
                secureTextEntry
         />
-        <Button>Submit</Button>
+        <Button>Log In</Button>
       </View>
        
     );
@@ -52,6 +52,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20
+    padding: 20,
+    paddingTop:100
   },
 });
