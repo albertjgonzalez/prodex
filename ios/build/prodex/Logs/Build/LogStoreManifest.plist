@@ -35,7 +35,7 @@
 			<key>uniqueIdentifier</key>
 			<string>01261F95-AD90-481A-9BB2-82DE3DD49D00</string>
 		</dict>
-		<key>06DC95AB-BB0C-412F-8B15-E58C9DD5CDFE</key>
+		<key>2DF7CDD7-2430-4BFC-BD49-4DB2340ACA54</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -44,7 +44,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>06DC95AB-BB0C-412F-8B15-E58C9DD5CDFE.xcactivitylog</string>
+			<string>2DF7CDD7-2430-4BFC-BD49-4DB2340ACA54.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>S</string>
 			<key>schemeIdentifier-containerName</key>
@@ -56,13 +56,13 @@
 			<key>signature</key>
 			<string>Building project prodex with scheme prodex and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>582500715.46303999</real>
+			<real>582509289.08945298</real>
 			<key>timeStoppedRecording</key>
-			<real>582500726.73373401</real>
+			<real>582509291.95721197</real>
 			<key>title</key>
 			<string>Building project prodex with scheme prodex and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>06DC95AB-BB0C-412F-8B15-E58C9DD5CDFE</string>
+			<string>2DF7CDD7-2430-4BFC-BD49-4DB2340ACA54</string>
 		</dict>
 	</dict>
 </dict>
