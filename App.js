@@ -1,6 +1,6 @@
 
-import React, {Component} from 'react';
-import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { Container, Header, Content, Tab, Tabs } from 'native-base';
 import MainScreen from './Components/MainScreen';
 import * as firebase from 'firebase';
@@ -18,9 +18,10 @@ import { Login } from './Components/Login';
 
 export default class App extends Component {
   state = {
-    loginEmail:'',
-    password:'',
+    loginEmail: '',
+    password: '',
     authenticating: false,
+    loggedIn: false,
     displayName: '',
     email: '',
     emailVerified: '',
@@ -28,80 +29,90 @@ export default class App extends Component {
     isAnonymous: '',
     uid: '',
     providerData: '',
-    }
+  }
 
-
+  logout(){
+    this.setState({ loggedIn:false, email:'', password:'' })
+  }
 
   componentWillMount() {
-      const firebaseConfig = {
-        apiKey : 'AIzaSyB-_QP7PPOGYvgIvdKGKt9J1FKEi1uYhJM',
-        authDomain: 'prodex.firebaseapp.com'
-  }
-    
-      firebase.initializeApp(firebaseConfig)
+    const firebaseConfig = {
+      apiKey: 'AIzaSyB-_QP7PPOGYvgIvdKGKt9J1FKEi1uYhJM',
+      authDomain: 'prodex.firebaseapp.com'
+    }
 
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          // ...
-          this.setState({
-            authenticating: false,
-            displayName: user.displayName,
-            email: user.email,
-            emailVerified: user.emailVerified,
-            photoURL: user.photoURL,
-            isAnonymous: user.isAnonymous,
-            uid: user.uid,
-            providerData: user.providerData,
-          })
-        } else {
-          // User is signed out.
-          // ...
-        }
-      }.bind(this));
-  }
+    firebase.initializeApp(firebaseConfig)
 
-  onPressSignIn(){
-    // this.setState({
-    //   authenticating: true
-    // });
-    Login(this.state.loginEmail,this.state.password)
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // ...
+        this.setState({
+          authenticating: false,
+          loggedIn: true,
+          displayName: user.displayName,
+          email: user.email,
+          emailVerified: user.emailVerified,
+          photoURL: user.photoURL,
+          isAnonymous: user.isAnonymous,
+          uid: user.uid,
+          providerData: user.providerData,
+        })
+      } else {
+        // User is signed out.
+        // ...
+      }
+    }.bind(this));
   }
 
-  renderCurrentState(){
-if(this.state.authenticating){
-  return(
-    <View style={styles.form}> 
-      <ActivityIndicator size='large'/>
-    </View>
-  )
-}
+  onPressSignIn() {
+    this.setState({
+      authenticating: true
+    });
+    Login(this.state.loginEmail, this.state.password)
+  }
 
-return (
-  <View style={styles.form}> 
-    {/* <MainScreen /> */}
-    <Input placeholder={'Enter Email'}
-           label={'Email'}
-           onChangeText={ email => this.setState({ loginEmail: email })}
-           value={this.state.loginEmail}
-    />
-    <Input placeholder={'Enter Password'}
-           label={'Password'}
-           onChangeText={ password => this.setState({ password })}
-           value={this.state.password}
-           secureTextEntry
-    />
-    <Button onPress={() => this.onPressSignIn()}>Log In</Button>
-  </View>
-   
-);
+  renderCurrentState() {
+
+    if (this.state.loggedIn) {
+      return (
+        <MainScreen logout={()=>this.logout()}/>
+      )
+    }
+    if (this.state.authenticating) {
+      return (
+        <View style={styles.form}>
+          <ActivityIndicator size='large' />
+        </View>
+      )
+    }
+    if (!this.state.loggedIn) {
+      return (
+        <View style={styles.form}>
+          {/* <MainScreen /> */}
+          <Input placeholder={'Enter Email'}
+            label={'Email'}
+            onChangeText={email => this.setState({ loginEmail: email })}
+            value={this.state.loginEmail}
+          />
+          <Input placeholder={'Enter Password'}
+            label={'Password'}
+            onChangeText={password => this.setState({ password })}
+            value={this.state.password}
+            secureTextEntry
+          />
+          <Button onPress={() => this.onPressSignIn()}>Log In</Button>
+        </View>
+
+      );
+    }
   }
 
   render() {
     return (
-      <View style={styles.container}> 
-       {this.renderCurrentState()}
+      <View style={styles.container}>
+        {this.renderCurrentState()}
       </View>
-       
+
     );
   }
 }

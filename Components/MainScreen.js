@@ -2,6 +2,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Container, Header, Content, Tab, Tabs } from 'native-base';
+import { Button } from './Button';
+import { Logout } from './Logout';
 
 // import Tab1 from './tabOne';
 // import Tab2 from './tabTwo';
@@ -31,6 +33,7 @@ export default class MainScreen extends Component {
             <Text>
               this is where users can change their settings
             </Text>
+              <Button onPress={() => this.props.logout()}>Log Out</Button>
           </Tab>
          
         </Tabs>
