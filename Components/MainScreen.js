@@ -5,6 +5,8 @@ import { Container, Header, Content, Tab, Tabs } from 'native-base';
 import { Button } from './Button';
 import { Logout } from './Logout';
 
+import HomeTab from './HomeTab';
+
 // import Tab1 from './tabOne';
 // import Tab2 from './tabTwo';
 // import Tab3 from './tabThree';
@@ -17,10 +19,7 @@ export default class MainScreen extends Component {
         <Header hasTabs />
         <Tabs>
           <Tab heading="Home">
-            {/* <Tab1 /> */}
-            <Text>
-              this is where users can see the beat packs they have
-            </Text>
+            <HomeTab />
           </Tab>
           <Tab heading="Friends">
             {/* <Tab2 /> */}
