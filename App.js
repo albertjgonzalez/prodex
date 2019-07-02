@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { Container, Header, Content, Tab, Tabs } from 'native-base';
@@ -17,18 +16,22 @@ import { Login } from './Components/Login';
 
 
 export default class App extends Component {
-  state = {
-    loginEmail: '',
-    password: '',
-    authenticating: false,
-    loggedIn: false,
-    displayName: '',
-    email: '',
-    emailVerified: '',
-    photoURL: '',
-    isAnonymous: '',
-    uid: '',
-    providerData: '',
+  constructor(props){
+    super(props)
+    this.state = {
+      creatingUser:false,
+      loginEmail: '',
+      password: '',
+      authenticating: false,
+      loggedIn: false,
+      displayName: '',
+      email: '',
+      emailVerified: '',
+      photoURL: '',
+      isAnonymous: '',
+      uid: '',
+      providerData: '',
+    }
   }
 
   logout(){
@@ -42,33 +45,89 @@ export default class App extends Component {
     }
 
     firebase.initializeApp(firebaseConfig)
+  }
 
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        // ...
-        this.setState({
-          authenticating: false,
-          loggedIn: true,
-          displayName: user.displayName,
-          email: user.email,
-          emailVerified: user.emailVerified,
-          photoURL: user.photoURL,
-          isAnonymous: user.isAnonymous,
-          uid: user.uid,
-          providerData: user.providerData,
-        })
-      } else {
-        // User is signed out.
-        // ...
-      }
-    }.bind(this));
+  // firebase.auth().onAuthStateChanged(function (user) {
+  //       if (user) {
+  //         // ...
+  //         this.setState({
+  //           authenticating: false,
+  //           loggedIn: true,
+  //           displayName: user.displayName,
+  //           email: user.email,
+  //           emailVerified: user.emailVerified,
+  //           photoURL: user.photoURL,
+  //           isAnonymous: user.isAnonymous,
+  //           uid: user.uid,
+  //           providerData: user.providerData,
+  //         })
+  //       } else {
+  //         // User is signed out.
+  //         // ...
+  //       }
+  //     }.bind(this));
+  
+  Login(){
+    firebase.auth().signInWithEmailAndPassword(this.state.loginEmail, this.state.password)
+    .then(()=>{
+      alert('success')
+      this.setState({
+        authenticating: false
+      });
+      this.setState({
+        loggedIn:true
+      })
+    })
+    .catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  if (errorCode === 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else {
+    alert(errorMessage);
+  }
+  console.log(error);
+});
+  }
+
+  signUp(){
+    firebase.auth().createUserWithEmailAndPassword(this.state.loginEmail, this.state.password)
+    .then(()=>{
+      alert('success')
+      this.setState({
+        authenticating: false
+      });
+      this.setState({
+        loggedIn:true
+      })
+    }).catch(function(error) {
+      alert(error)
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
   }
 
   onPressSignIn() {
     this.setState({
       authenticating: true
     });
-    Login(this.state.loginEmail, this.state.password)
+    this.Login();
+  }
+
+  onPressSignUp() {
+    this.setState({
+      authenticating: true
+    });
+    this.signUp();
+  }
+
+  createUser(){
+    this.setState({
+        creatingUser:true
+    })
   }
 
   renderCurrentState() {
@@ -85,7 +144,7 @@ export default class App extends Component {
         </View>
       )
     }
-    if (!this.state.loggedIn) {
+    if (!this.state.loggedIn && !this.state.creatingUser) {
       return (
         <View style={styles.form}>
           {/* <MainScreen /> */}
@@ -101,6 +160,27 @@ export default class App extends Component {
             secureTextEntry
           />
           <Button onPress={() => this.onPressSignIn()}>Log In</Button>
+          <Button onPress={() => this.createUser()}>Sign</Button>
+        </View>
+
+      );
+    }
+    if (!this.state.loggedIn && this.state.creatingUser) {
+      return (
+        <View style={styles.createUserForm}>
+          {/* <MainScreen /> */}
+          <Input placeholder={'Enter Email'}
+            label={'Email'}
+            onChangeText={email => this.setState({ loginEmail: email })}
+            value={this.state.loginEmail}
+          />
+          <Input placeholder={'Enter Password'}
+            label={'Password'}
+            onChangeText={password => this.setState({ password })}
+            value={this.state.password}
+            secureTextEntry
+          />
+          <Button onPress={() => this.onPressSignUp()}>Sign Up</Button>
         </View>
 
       );
@@ -126,6 +206,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   form: {
+    flex: 1
+  },
+  createUserForm: {
     flex: 1
   }
 });
