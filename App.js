@@ -6,22 +6,15 @@ import * as firebase from 'firebase';
 import { Input } from './Components/Input';
 import { Button } from './Components/Button';
 import { Login } from './Components/Login';
-
-
-
-
-// import Tab1 from './tabOne';
-// import Tab2 from './tabTwo';
-// import Tab3 from './tabThree';
-
+import FBDatabase from './Components/FBDatabase'
 
 export default class App extends Component {
   constructor(props){
     super(props)
     this.state = {
       creatingUser:false,
-      loginEmail: '',
-      password: '',
+      loginEmail: 'email@email.com',
+      password: 'emailemail22',
       authenticating: false,
       loggedIn: false,
       displayName: '',
@@ -39,43 +32,31 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    const firebaseConfig = {
-      apiKey: 'AIzaSyB-_QP7PPOGYvgIvdKGKt9J1FKEi1uYhJM',
-      authDomain: 'prodex.firebaseapp.com'
-    }
-
-    firebase.initializeApp(firebaseConfig)
+    var firebaseConfig = {
+      apiKey: "AIzaSyB-_QP7PPOGYvgIvdKGKt9J1FKEi1uYhJM",
+      authDomain: "prodex.firebaseapp.com",
+      databaseURL: "https://prodex.firebaseio.com",
+      projectId: "prodex",
+      storageBucket: "prodex.appspot.com",
+      messagingSenderId: "359096778147",
+      appId: "1:359096778147:web:f26c8b8833b7292f"
+    };
+    firebase.initializeApp(firebaseConfig);
+    this.database = firebase.database();
   }
 
-  // firebase.auth().onAuthStateChanged(function (user) {
-  //       if (user) {
-  //         // ...
-  //         this.setState({
-  //           authenticating: false,
-  //           loggedIn: true,
-  //           displayName: user.displayName,
-  //           email: user.email,
-  //           emailVerified: user.emailVerified,
-  //           photoURL: user.photoURL,
-  //           isAnonymous: user.isAnonymous,
-  //           uid: user.uid,
-  //           providerData: user.providerData,
-  //         })
-  //       } else {
-  //         // User is signed out.
-  //         // ...
-  //       }
-  //     }.bind(this));
   
   Login(){
     firebase.auth().signInWithEmailAndPassword(this.state.loginEmail, this.state.password)
-    .then(()=>{
-      alert('success')
+    .then((success)=>{
       this.setState({
-        authenticating: false
-      });
-      this.setState({
-        loggedIn:true
+        authenticating: false,
+        loggedIn:true,
+        uid:success.user.uid,
+      })
+
+      FBDatabase.getBeats(this.database,this.state.uid,beats => {
+        this.setState({beats})
       })
     })
     .catch(function(error) {
@@ -94,15 +75,16 @@ export default class App extends Component {
   signUp(){
     firebase.auth().createUserWithEmailAndPassword(this.state.loginEmail, this.state.password)
     .then(()=>{
-      alert('success')
       this.setState({
-        authenticating: false
-      });
-      this.setState({
-        loggedIn:true
+        authenticating: false,
+        loggedIn:true,
+        uid:success.user.uid,
       })
     }).catch(function(error) {
       alert(error)
+      this.setState({
+        authenticating: false
+      });
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -134,7 +116,7 @@ export default class App extends Component {
 
     if (this.state.loggedIn) {
       return (
-        <MainScreen logout={()=>this.logout()}/>
+        <MainScreen beats={this.state.beats}email={this.state.loginEmail} logout={()=>this.logout()}/>
       )
     }
     if (this.state.authenticating) {

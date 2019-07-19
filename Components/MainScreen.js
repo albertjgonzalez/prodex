@@ -4,7 +4,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Container, Header, Content, Tab, Tabs } from 'native-base';
 import { Button } from './Button';
 import { Logout } from './Logout';
-
+import firebase from 'firebase';
 import HomeTab from './HomeTab';
 
 // import Tab1 from './tabOne';
@@ -13,13 +13,21 @@ import HomeTab from './HomeTab';
 
 
 export default class MainScreen extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      storageBucket:'gs://prodex.appspot.com/'
+      }
+    console.log(this.props.beats)
+    }
+  
   render() {
     return (
-      <Container>
+      <Container email={this.props.email}>
         <Header hasTabs />
         <Tabs>
           <Tab heading="Home">
-            <HomeTab />
+            <HomeTab beats={this.beats}/>
           </Tab>
           <Tab heading="Friends">
             {/* <Tab2 /> */}

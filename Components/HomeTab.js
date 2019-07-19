@@ -4,13 +4,26 @@ import { Button } from './Button';
 import { addBeatPack } from './FireBaseStore';
 
 export default class HomeTab extends Component  {
+    constructor(props){
+        super(props)
+        this.state = {
+            beats:[]
+        }
+    }
+    componentWillMount(){
+        this.setState({
+            beats:this.props.beats
+        })
+        console.log(this.props.beats)
+    }
     render(){
         return (
-            <View>
+            <View Beats={this.props.beats}>
+                
                 <Text>
-                    This is the home tab
+
                 </Text>
-                <Button onPress={() => addBeatPack('beats')}>upload</Button>
+                <Button onPress={() => addBeatPack('beats')}>add beat</Button>
             </View>
         )
     }
