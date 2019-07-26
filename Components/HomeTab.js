@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Linking } from 'react-native';
 import { Button } from './Button';
 import { addBeatPack } from './FireBaseStore';
 
@@ -11,24 +11,22 @@ export default class HomeTab extends Component  {
         }
     }
     renderBeatList(beats){
-      let  Newbeats = Object.entries(beats)
-      console.log(Newbeats)
-      return Newbeats.map((col, j) =>
+      console.log(beats)
+      return Object.entries(beats).map(pack =>
       <View>
-        <Text>{col}</Text>
-        <Text>{Newbeats[col]}</Text>
+        <Text style={{fontSize:20}}>{pack[1][0]}</Text>
+        {Object.entries(pack[1][1]).map(beat =>{
+            return (
+                <Text
+                onPress={() => {Linking.openURL(beat[1])}}
+                style={{fontSize:10}}>
+                {beat[0]}
+                </Text>
+            )
+        })}
       </View>  
       )
-    //  for(let [name, url] of Object.entries(beats)){
-    //                 return (<View style={this.styles.beatList}>
-    //                 <Text>
-    //                     {name}
-    //                 </Text>
-    //                 <Text>
-    //                 {url}
-    //                 </Text> 
-    //                 </View>)
-    //             }
+
     }
     render(){
         console.log(this.props.Beats)
