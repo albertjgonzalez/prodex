@@ -7,24 +7,45 @@ export default class HomeTab extends Component  {
     constructor(props){
         super(props)
         this.state = {
-            beats:[]
+            beats:this.props.beats
         }
     }
-    componentWillMount(){
-        this.setState({
-            beats:this.props.beats
-        })
-        console.log(this.props.beats)
+    renderBeatList(beats){
+      let  Newbeats = Object.entries(beats)
+      console.log(Newbeats)
+      return Newbeats.map((col, j) =>
+      <View>
+        <Text>{col}</Text>
+        <Text>{Newbeats[col]}</Text>
+      </View>  
+      )
+    //  for(let [name, url] of Object.entries(beats)){
+    //                 return (<View style={this.styles.beatList}>
+    //                 <Text>
+    //                     {name}
+    //                 </Text>
+    //                 <Text>
+    //                 {url}
+    //                 </Text> 
+    //                 </View>)
+    //             }
     }
     render(){
+        console.log(this.props.Beats)
         return (
-            <View Beats={this.props.beats}>
-                
-                <Text>
-
-                </Text>
+            <View>
+                {this.renderBeatList(this.props.Beats)}
                 <Button onPress={() => addBeatPack('beats')}>add beat</Button>
             </View>
         )
     }
+
+styles={
+    beatList:{
+        height:100,
+        backgroundColor: 'skyblue',
+        color:`white`,
+        fontSize: `24px`
+    }
+}
 }

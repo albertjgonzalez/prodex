@@ -16,18 +16,18 @@ export default class MainScreen extends Component {
   constructor(props){
     super(props)
     this.state={
-      storageBucket:'gs://prodex.appspot.com/'
+      storageBucket:'gs://prodex.appspot.com/',
+      beats:this.props.beats
       }
-    console.log(this.props.beats)
     }
-  
-  render() {
+    
+    render() {
     return (
       <Container email={this.props.email}>
         <Header hasTabs />
         <Tabs>
           <Tab heading="Home">
-            <HomeTab beats={this.beats}/>
+            <HomeTab Beats={this.props.beats}/>
           </Tab>
           <Tab heading="Friends">
             {/* <Tab2 /> */}

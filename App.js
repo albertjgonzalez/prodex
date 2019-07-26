@@ -24,6 +24,7 @@ export default class App extends Component {
       isAnonymous: '',
       uid: '',
       providerData: '',
+      beats:{}
     }
   }
 
@@ -54,10 +55,10 @@ export default class App extends Component {
         loggedIn:true,
         uid:success.user.uid,
       })
-
       FBDatabase.getBeats(this.database,this.state.uid,beats => {
-        this.setState({beats})
+            this.setState({beats:beats})
       })
+
     })
     .catch(function(error) {
   // Handle Errors here.
@@ -113,10 +114,9 @@ export default class App extends Component {
   }
 
   renderCurrentState() {
-
     if (this.state.loggedIn) {
       return (
-        <MainScreen beats={this.state.beats}email={this.state.loginEmail} logout={()=>this.logout()}/>
+        <MainScreen beats={this.state.beats} email={this.state.loginEmail} logout={()=>this.logout()}/>
       )
     }
     if (this.state.authenticating) {
@@ -129,7 +129,6 @@ export default class App extends Component {
     if (!this.state.loggedIn && !this.state.creatingUser) {
       return (
         <View style={styles.form}>
-          {/* <MainScreen /> */}
           <Input placeholder={'Enter Email'}
             label={'Email'}
             onChangeText={email => this.setState({ loginEmail: email })}
