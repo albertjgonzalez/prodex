@@ -41,7 +41,7 @@ export default class HomeTab extends Component  {
 styles={
     beatList:{
         height:100,
-        backgroundColor: 'skyblue',
+        backgroundColor: `#EFEBE2`,
         color:`white`,
         fontSize: `24px`
     }

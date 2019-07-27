@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View, Button } from 'react-native';
 import { Container, Header, Content, Tab, Tabs } from 'native-base';
 import MainScreen from './Components/MainScreen';
 import * as firebase from 'firebase';
 import { Input } from './Components/Input';
-import { Button } from './Components/Button';
 import { Login } from './Components/Login';
 import FBDatabase from './Components/FBDatabase'
 
@@ -129,6 +128,7 @@ export default class App extends Component {
     if (!this.state.loggedIn && !this.state.creatingUser) {
       return (
         <View style={styles.form}>
+          
           <Input placeholder={'Enter Email'}
             label={'Email'}
             onChangeText={email => this.setState({ loginEmail: email })}
@@ -140,8 +140,12 @@ export default class App extends Component {
             value={this.state.password}
             secureTextEntry
           />
-          <Button onPress={() => this.onPressSignIn()}>Log In</Button>
-          <Button onPress={() => this.createUser()}>Sign</Button>
+          <View style={styles.submitButton}>
+          <Button title='Log In' color='black' onPress={() => this.onPressSignIn()}/>
+          </View>
+          <View style={styles.submitButton}>
+          <Button title='Sign Up' color='black' onPress={() => this.createUser()}/>
+          </View>
         </View>
 
       );
@@ -161,7 +165,9 @@ export default class App extends Component {
             value={this.state.password}
             secureTextEntry
           />
-          <Button onPress={() => this.onPressSignUp()}>Sign Up</Button>
+          <View style={styles.submitButton}>
+          <Button title='Sign Up' color='black' onPress={() => this.onPressSignUp()}/>
+          </View>
         </View>
 
       );
@@ -180,6 +186,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: `#EFEBE2`,
     flex: 1,
     padding: 20,
     alignItems: 'center',
@@ -187,9 +194,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   form: {
-    flex: 1
+    flex: 1,
+    alignItems: 'center',
   },
   createUserForm: {
     flex: 1
+  },
+  submitButton: {
+    color:'black',
+    backgroundColor: `#AB0552`,
+    height:50,
+    width: 150,
+    marginTop:10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight:'bold',
+    borderRadius: 5,
   }
 });
