@@ -23,7 +23,7 @@ export default class MainScreen extends Component {
     
     render() {
     return (
-      <Container email={this.props.email}>
+      <Container style={styles.container} email={this.props.email}>
         <Header hasTabs />
         <Tabs>
           <Tab heading="Home">
@@ -35,14 +35,7 @@ export default class MainScreen extends Component {
               this is where users can see their friends
             </Text>
           </Tab>
-          <Tab heading="Settings">
-            {/* <Tab3 /> */}
-            <Text>
-              this is where users can change their settings
-            </Text>
-              <Button onPress={() => this.props.logout()}>Log Out</Button>
-          </Tab>
-         
+          
         </Tabs>
       </Container>
     );
@@ -54,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#EFEBE2',
   },
   welcome: {
     fontSize: 20,

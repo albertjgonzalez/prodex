@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View, Button } from 'react-native';
-import { Container, Header, Content, Tab, Tabs } from 'native-base';
+import { ActivityIndicator, StyleSheet, Text, View, Image} from 'react-native';
+import { Button } from 'native-base';
 import MainScreen from './Components/MainScreen';
 import * as firebase from 'firebase';
 import { Input } from './Components/Input';
@@ -26,11 +26,12 @@ export default class App extends Component {
       beats:{}
     }
   }
-
+  
+  
   logout(){
     this.setState({ loggedIn:false, email:'', password:'' })
   }
-
+  
   componentWillMount() {
     var firebaseConfig = {
       apiKey: "AIzaSyB-_QP7PPOGYvgIvdKGKt9J1FKEi1uYhJM",
@@ -44,7 +45,7 @@ export default class App extends Component {
     firebase.initializeApp(firebaseConfig);
     this.database = firebase.database();
   }
-
+  
   
   Login(){
     firebase.auth().signInWithEmailAndPassword(this.state.loginEmail, this.state.password)
@@ -55,23 +56,23 @@ export default class App extends Component {
         uid:success.user.uid,
       })
       FBDatabase.getBeats(this.database,this.state.uid,beats => {
-            this.setState({beats:beats})
+        this.setState({beats:beats})
       })
-
+      
     })
     .catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  if (errorCode === 'auth/wrong-password') {
-    alert('Wrong password.');
-  } else {
-    alert(errorMessage);
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+    });
   }
-  console.log(error);
-});
-  }
-
+  
   signUp(){
     firebase.auth().createUserWithEmailAndPassword(this.state.loginEmail, this.state.password)
     .then(()=>{
@@ -91,36 +92,39 @@ export default class App extends Component {
       // ...
     });
   }
-
+  
   onPressSignIn() {
     this.setState({
       authenticating: true
     });
     this.Login();
   }
-
+  
   onPressSignUp() {
     this.setState({
       authenticating: true
     });
     this.signUp();
   }
-
+  
   createUser(){
     this.setState({
-        creatingUser:true
+      creatingUser:true
     })
   }
-
+  
   renderCurrentState() {
+    
+    const resizeMode = 'center';
+
     if (this.state.loggedIn) {
       return (
         <MainScreen beats={this.state.beats} email={this.state.loginEmail} logout={()=>this.logout()}/>
-      )
-    }
-    if (this.state.authenticating) {
-      return (
-        <View style={styles.form}>
+        )
+      }
+      if (this.state.authenticating) {
+        return (
+          <View style={styles.form}>
           <ActivityIndicator size='large' />
         </View>
       )
@@ -133,41 +137,46 @@ export default class App extends Component {
             label={'Email'}
             onChangeText={email => this.setState({ loginEmail: email })}
             value={this.state.loginEmail}
-          />
+            />
           <Input placeholder={'Enter Password'}
+            style={{fontSize:30}}
             label={'Password'}
             onChangeText={password => this.setState({ password })}
             value={this.state.password}
             secureTextEntry
-          />
-          <View style={styles.submitButton}>
-          <Button title='Log In' color='black' onPress={() => this.onPressSignIn()}/>
-          </View>
-          <View style={styles.submitButton}>
-          <Button title='Sign Up' color='black' onPress={() => this.createUser()}/>
-          </View>
+            />
+
+          <Button style={styles.submitButton} title='Log In' color='black' onPress={() => this.onPressSignIn()}>
+            <Text style={{color:'white', fontSize:36, fontWeight:'bold'}}>Log In</Text>
+          </Button>
+
+
+          <Button style={styles.submitButton} title='Sign Up' color='black' onPress={() => this.createUser()}>
+          <Text style={{color:'white', fontSize:36, fontWeight:'bold'}}>Sign Up</Text>
+          </Button>
         </View>
 
-      );
-    }
-    if (!this.state.loggedIn && this.state.creatingUser) {
-      return (
-        <View style={styles.createUserForm}>
+);
+}
+if (!this.state.loggedIn && this.state.creatingUser) {
+  return (
+    <View style={styles.createUserForm}>
           {/* <MainScreen /> */}
           <Input placeholder={'Enter Email'}
             label={'Email'}
             onChangeText={email => this.setState({ loginEmail: email })}
             value={this.state.loginEmail}
-          />
+            />
           <Input placeholder={'Enter Password'}
             label={'Password'}
             onChangeText={password => this.setState({ password })}
             value={this.state.password}
             secureTextEntry
           />
-          <View style={styles.submitButton}>
-          <Button title='Sign Up' color='black' onPress={() => this.onPressSignUp()}/>
-          </View>
+          <Button style={styles.submitButton} title='Sign Up' color='black' onPress={() => this.onPressSignUp()}>
+            <Text style={{color:'white', fontSize:36, fontWeight:'bold'}}>Sign Up</Text>
+          </Button>
+          
         </View>
 
       );
@@ -196,19 +205,20 @@ const styles = StyleSheet.create({
   form: {
     flex: 1,
     alignItems: 'center',
+    padding:20
   },
   createUserForm: {
-    flex: 1
+    flex: 1,
+    alignItems: 'center',
+    padding:20
   },
   submitButton: {
-    color:'black',
-    backgroundColor: `#AB0552`,
-    height:50,
-    width: 150,
+    backgroundColor:'#AB0552',
+    height:70,
+    width: 300,
     marginTop:10,
     alignItems: 'center',
     justifyContent: 'center',
-    fontWeight:'bold',
     borderRadius: 5,
   }
 });

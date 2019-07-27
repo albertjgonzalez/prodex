@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         padding: 5,
         paddingBottom: 0,
         color: '#333',
-        fontSize: 17,
+        fontSize: 20,
         fontWeight: '700',
         width: '100%'
     },
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         paddingBottom: 2,
         color: '#333',
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: '700',
         width: '100%'
     }
