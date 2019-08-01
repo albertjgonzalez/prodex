@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import { Container, Header, Content, Tab, Tabs } from 'native-base';
+import { Container, Header, Content, TabHeading, Tab, Tabs } from 'native-base';
 import { Button } from './Button';
 import { Logout } from './Logout';
 import firebase from 'firebase';
@@ -24,13 +24,24 @@ export default class MainScreen extends Component {
     render() {
     return (
       <Container style={styles.container} email={this.props.email}>
-        <Header hasTabs />
-        <Tabs>
-          <Tab heading="Home">
-            <HomeTab Beats={this.props.beats}/>
+        <Header style={{backgroundColor: `#EFEBE2` }} hasTabs />
+        <Tabs tabBarUnderlineStyle={{backgroundColor: 'white' }}>
+        <Tab 
+            heading={'my music'}
+            activeTextStyle={{ color: 'black', fontWeight: 'bold' }}
+            textStyle={{ color: 'white', fontWeight: 'bold' }}
+            tabStyle={{backgroundColor: `#EFEBE2`}}
+            activeTabStyle={{backgroundColor: '#AB0552',tabBarUnderlineStyle: 'black'}}
+            >
+            <HomeTab style={{backgroundColor: `#EFEBE2`}} Beats={this.props.beats}/>
           </Tab>
-          <Tab heading="Friends">
-            {/* <Tab2 /> */}
+          <Tab 
+            heading={'friends'}
+            activeTextStyle={{ color: 'black', fontWeight: 'bold' }}
+            textStyle={{ color: 'white', fontWeight: 'bold' }}
+            tabStyle={{backgroundColor: `#EFEBE2`}}
+            activeTabStyle={{backgroundColor: '#AB0552',tabBarUnderlineStyle: 'black'}}
+            >
             <Text>
               this is where users can see their friends
             </Text>
@@ -44,19 +55,8 @@ export default class MainScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#EFEBE2',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    backgroundColor: `#EFEBE2`,
+  }
 });

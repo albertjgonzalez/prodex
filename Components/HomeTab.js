@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Linking } from 'react-native';
+import { ActivityIndicator, View, Text, Linking } from 'react-native';
 import { Button } from './Button';
 import { addBeatPack } from './FireBaseStore';
 
@@ -28,22 +28,35 @@ export default class HomeTab extends Component  {
       )
 
     }
-    render(){
-        console.log(this.props.Beats)
-        return (
-            <View>
-                {this.renderBeatList(this.props.Beats)}
-                <Button onPress={() => addBeatPack('beats')}>add beat</Button>
-            </View>
-        )
+    renderCurrentState() {
+        {console.log(this.props.Beats)}
+        if(Object.entries(this.props.Beats).length === 0 && this.props.Beats.constructor === Object){
+            return <ActivityIndicator style={this.styles.beatList}/>
+        }
+        else{
+            return (
+                <View style={this.styles.beatList}>
+                    {this.renderBeatList(this.props.Beats)}
+                </View>
+            )
+        }
     }
+
+    render() {
+        return (
+          <View>
+            {this.renderCurrentState()}
+          </View>
+    
+        );
+      }
 
 styles={
     beatList:{
-        height:100,
         backgroundColor: `#EFEBE2`,
         color:`white`,
-        fontSize: `24px`
+        fontSize: `24px`,
+        justifyContent: 'center',
     }
 }
 }

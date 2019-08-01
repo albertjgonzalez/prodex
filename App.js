@@ -147,12 +147,12 @@ export default class App extends Component {
             />
 
           <Button style={styles.submitButton} title='Log In' color='black' onPress={() => this.onPressSignIn()}>
-            <Text style={{color:'white', fontSize:36, fontWeight:'bold'}}>Log In</Text>
+            <Text style={{color:'white', fontSize:28, fontWeight:'bold'}}>Log In</Text>
           </Button>
 
 
           <Button style={styles.submitButton} title='Sign Up' color='black' onPress={() => this.createUser()}>
-          <Text style={{color:'white', fontSize:36, fontWeight:'bold'}}>Sign Up</Text>
+          <Text style={{color:'white', fontSize:28, fontWeight:'bold'}}>Sign Up</Text>
           </Button>
         </View>
 
@@ -174,7 +174,7 @@ if (!this.state.loggedIn && this.state.creatingUser) {
             secureTextEntry
           />
           <Button style={styles.submitButton} title='Sign Up' color='black' onPress={() => this.onPressSignUp()}>
-            <Text style={{color:'white', fontSize:36, fontWeight:'bold'}}>Sign Up</Text>
+            <Text style={{color:'white', fontSize:28, fontWeight:'bold'}}>Sign Up</Text>
           </Button>
           
         </View>
@@ -205,20 +205,22 @@ const styles = StyleSheet.create({
   form: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     padding:20
   },
   createUserForm: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     padding:20
   },
   submitButton: {
     backgroundColor:'#AB0552',
-    height:70,
-    width: 300,
+    height:60,
+    width: 250,
     marginTop:10,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: 50,
   }
 });
