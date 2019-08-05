@@ -29,7 +29,7 @@ export default class MainScreen extends Component {
         <Tab 
             heading={'my music'}
             activeTextStyle={{ color: 'black', fontWeight: 'bold' }}
-            textStyle={{ color: 'white', fontWeight: 'bold' }}
+            textStyle={{ color: 'grey', fontWeight: 'bold' }}
             tabStyle={{backgroundColor: `#EFEBE2`}}
             activeTabStyle={{backgroundColor: '#AB0552',tabBarUnderlineStyle: 'black'}}
             >
@@ -38,7 +38,7 @@ export default class MainScreen extends Component {
           <Tab 
             heading={'friends'}
             activeTextStyle={{ color: 'black', fontWeight: 'bold' }}
-            textStyle={{ color: 'white', fontWeight: 'bold' }}
+            textStyle={{ color: 'grey', fontWeight: 'bold' }}
             tabStyle={{backgroundColor: `#EFEBE2`}}
             activeTabStyle={{backgroundColor: '#AB0552',tabBarUnderlineStyle: 'black'}}
             >
@@ -58,5 +58,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: `#EFEBE2`,
+    flex:1
   }
 });

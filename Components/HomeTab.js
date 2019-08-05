@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, View, Text, Linking } from 'react-native';
+import { StyleSheet, ActivityIndicator, View, Text, Linking } from 'react-native';
 import { Button } from './Button';
 import { addBeatPack } from './FireBaseStore';
 
@@ -31,11 +31,11 @@ export default class HomeTab extends Component  {
     renderCurrentState() {
         {console.log(this.props.Beats)}
         if(Object.entries(this.props.Beats).length === 0 && this.props.Beats.constructor === Object){
-            return <ActivityIndicator style={this.styles.beatList}/>
+            return <ActivityIndicator style={styles.beatList}/>
         }
         else{
             return (
-                <View style={this.styles.beatList}>
+                <View style={styles.beatList}>
                     {this.renderBeatList(this.props.Beats)}
                 </View>
             )
@@ -44,19 +44,26 @@ export default class HomeTab extends Component  {
 
     render() {
         return (
-          <View>
+          <View style={styles.container}>
+              <Text style={styles.Header}>My Beats</Text>
             {this.renderCurrentState()}
           </View>
     
         );
       }
 
-styles={
-    beatList:{
-        backgroundColor: `#EFEBE2`,
-        color:`white`,
-        fontSize: `24px`,
-        justifyContent: 'center',
     }
-}
-}
+    const styles = StyleSheet.create({
+        beatList:{
+            backgroundColor: `#EFEBE2`,
+            color:`white`,
+            justifyContent: 'center',
+        },
+        container: {
+            backgroundColor: `#EFEBE2`,
+            flex:1
+          },
+          Header:{
+              fontSize:30
+          }
+    })

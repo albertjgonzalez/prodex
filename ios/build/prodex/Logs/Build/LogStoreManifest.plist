@@ -6,6 +6,35 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
+		<key>68F0B24F-B1DB-4BF2-8C00-CFD71CB21C0F</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>68F0B24F-B1DB-4BF2-8C00-CFD71CB21C0F.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>prodex project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>prodex</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project prodex with scheme prodex and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>586541068.05658305</real>
+			<key>timeStoppedRecording</key>
+			<real>586541091.10948205</real>
+			<key>title</key>
+			<string>Building project prodex with scheme prodex and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>68F0B24F-B1DB-4BF2-8C00-CFD71CB21C0F</string>
+		</dict>
 		<key>A40B8210-7EC2-4EFA-81C6-209F3DF5B7A9</key>
 		<dict>
 			<key>className</key>
@@ -34,35 +63,6 @@
 			<string>Building project prodex with scheme prodex and configuration Debug</string>
 			<key>uniqueIdentifier</key>
 			<string>A40B8210-7EC2-4EFA-81C6-209F3DF5B7A9</string>
-		</dict>
-		<key>C332A538-A0D2-424E-AFC4-3BB29137EB4E</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>C332A538-A0D2-424E-AFC4-3BB29137EB4E.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>S</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>prodex project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>prodex</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project prodex with scheme prodex and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>585412813.80796695</real>
-			<key>timeStoppedRecording</key>
-			<real>585412820.48676205</real>
-			<key>title</key>
-			<string>Building project prodex with scheme prodex and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>C332A538-A0D2-424E-AFC4-3BB29137EB4E</string>
 		</dict>
 	</dict>
 </dict>
