@@ -12,8 +12,8 @@ export default class App extends Component {
     super(props)
     this.state = {
       creatingUser:false,
-      loginEmail: 'email@email.com',
-      password: 'emailemail22',
+      loginEmail: '',
+      password: '',
       authenticating: false,
       loggedIn: false,
       displayName: '',
@@ -55,6 +55,7 @@ export default class App extends Component {
         loggedIn:true,
         uid:success.user.uid,
       })
+      FBDatabase.getUsers(this.database)
       FBDatabase.getBeats(this.database,this.state.uid,beats => {
         this.setState({beats:beats})
       })
@@ -69,27 +70,30 @@ export default class App extends Component {
       } else {
         alert(errorMessage);
       }
+      this.setState({
+        authenticating: false
+      });
       console.log(error);
     });
   }
   
   signUp(){
     firebase.auth().createUserWithEmailAndPassword(this.state.loginEmail, this.state.password)
-    .then(()=>{
+    .then((success)=>{
+      FBDatabase.addUser(this.database,this.state.displayName,this.state.email,success.user.uid,response=>{
+        console.log(response)
+      })
       this.setState({
         authenticating: false,
+        creatingUser:false,
         loggedIn:true,
-        uid:success.user.uid,
+        uid: success.user.uid,
       })
     }).catch(function(error) {
-      alert(error)
+      console.log(error)
       this.setState({
         authenticating: false
       });
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
     });
   }
   
@@ -162,6 +166,11 @@ if (!this.state.loggedIn && this.state.creatingUser) {
   return (
     <View style={styles.createUserForm}>
           {/* <MainScreen /> */}
+          <Input placeholder={'Enter Name'}
+            label={'Name'}
+            onChangeText={name => this.setState({ displayName:name })}
+            value={this.state.displayName}
+          />
           <Input placeholder={'Enter Email'}
             label={'Email'}
             onChangeText={email => this.setState({ loginEmail: email })}

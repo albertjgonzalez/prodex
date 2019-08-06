@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, ActivityIndicator, View, Text, Linking } from 'react-native';
-import { Button } from './Button';
-import { addBeatPack } from './FireBaseStore';
+
 
 export default class HomeTab extends Component  {
     constructor(props){
@@ -29,7 +28,6 @@ export default class HomeTab extends Component  {
 
     }
     renderCurrentState() {
-        {console.log(this.props.Beats)}
         if(Object.entries(this.props.Beats).length === 0 && this.props.Beats.constructor === Object){
             return <ActivityIndicator style={styles.beatList}/>
         }
@@ -64,6 +62,6 @@ export default class HomeTab extends Component  {
             flex:1
           },
           Header:{
-              fontSize:30
+              fontSize:50
           }
     })
