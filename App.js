@@ -12,8 +12,8 @@ export default class App extends Component {
     super(props)
     this.state = {
       creatingUser:false,
-      loginEmail: '',
-      password: '',
+      loginEmail: 'ajgonzalez1114@gmail.com',
+      password: 'emailemail22',
       authenticating: false,
       loggedIn: false,
       displayName: '',
@@ -23,7 +23,8 @@ export default class App extends Component {
       isAnonymous: '',
       uid: '',
       providerData: '',
-      beats:{}
+      beats:{},
+      users:[]
     }
   }
   
@@ -55,7 +56,9 @@ export default class App extends Component {
         loggedIn:true,
         uid:success.user.uid,
       })
-      FBDatabase.getUsers(this.database)
+      FBDatabase.getUsers(this.database,users=>{
+        this.setState({users})
+      })
       FBDatabase.getBeats(this.database,this.state.uid,beats => {
         this.setState({beats:beats})
       })
@@ -80,7 +83,7 @@ export default class App extends Component {
   signUp(){
     firebase.auth().createUserWithEmailAndPassword(this.state.loginEmail, this.state.password)
     .then((success)=>{
-      FBDatabase.addUser(this.database,this.state.displayName,this.state.email,success.user.uid,response=>{
+      FBDatabase.addUser(this.database,this.state.displayName,this.state.loginEmail,success.user.uid,response=>{
         console.log(response)
       })
       this.setState({
@@ -123,7 +126,7 @@ export default class App extends Component {
 
     if (this.state.loggedIn) {
       return (
-        <MainScreen beats={this.state.beats} email={this.state.loginEmail} logout={()=>this.logout()}/>
+        <MainScreen users = {this.state.users} beats={this.state.beats} email={this.state.loginEmail} logout={()=>this.logout()}/>
         )
       }
       if (this.state.authenticating) {

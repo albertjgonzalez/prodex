@@ -21,7 +21,6 @@ const FBDatabase = {
         })
     },
     addUser: (database, name, email, uid,response) => {
-        console.log(database, name, email, uid,response)
         database.ref('users/' + uid).set({
           name,
           email,
@@ -30,9 +29,14 @@ const FBDatabase = {
             response(error)
         });
       },
-    getUsers: (database,searchTerm,displayUsers)=>{
+    getUsers: (database,displayUsers)=>{
         database.ref('users/').once('value').then(snapshot=>{
-            console.log(snapshot.val())
+            let users = Object.entries(snapshot.toJSON())
+            let userList = []
+            users.forEach(user=>{
+                userList[user[1][`name`]] = user[1][`email`]
+            })
+            displayUsers(userList)
         })
     }
 }

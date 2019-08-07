@@ -17,7 +17,8 @@ export default class MainScreen extends Component {
     super(props)
     this.state={
       storageBucket:'gs://prodex.appspot.com/',
-      beats:this.props.beats
+      beats:this.props.beats,
+      users:this.props.users
       }
     }
     
@@ -37,6 +38,7 @@ export default class MainScreen extends Component {
           </Tab>
           <Tab 
             heading={'friends'}
+            users={this.state.users}
             activeTextStyle={{ color: 'black', fontWeight: 'bold' }}
             textStyle={{ color: 'grey', fontWeight: 'bold' }}
             tabStyle={{backgroundColor: `#EFEBE2`}}
