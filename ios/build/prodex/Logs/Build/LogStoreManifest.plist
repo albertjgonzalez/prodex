@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>68F0B24F-B1DB-4BF2-8C00-CFD71CB21C0F</key>
+		<key>210B060D-F9D6-4BDB-9891-684B8D29879E</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>68F0B24F-B1DB-4BF2-8C00-CFD71CB21C0F.xcactivitylog</string>
+			<string>210B060D-F9D6-4BDB-9891-684B8D29879E.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>S</string>
 			<key>schemeIdentifier-containerName</key>
@@ -27,15 +27,15 @@
 			<key>signature</key>
 			<string>Building project prodex with scheme prodex and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>586541068.05658305</real>
+			<real>587923096.36734402</real>
 			<key>timeStoppedRecording</key>
-			<real>586541091.10948205</real>
+			<real>587923133.89940596</real>
 			<key>title</key>
 			<string>Building project prodex with scheme prodex and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>68F0B24F-B1DB-4BF2-8C00-CFD71CB21C0F</string>
+			<string>210B060D-F9D6-4BDB-9891-684B8D29879E</string>
 		</dict>
-		<key>E76D9F9A-7145-411A-9F24-4B670D3CE44F</key>
+		<key>90A30983-02B0-4A0E-BC98-0928CC3BFD31</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -44,9 +44,9 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>E76D9F9A-7145-411A-9F24-4B670D3CE44F.xcactivitylog</string>
+			<string>90A30983-02B0-4A0E-BC98-0928CC3BFD31.xcactivitylog</string>
 			<key>highLevelStatus</key>
-			<string>S</string>
+			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
 			<string>prodex project</string>
 			<key>schemeIdentifier-schemeName</key>
@@ -56,13 +56,13 @@
 			<key>signature</key>
 			<string>Building project prodex with scheme prodex and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>586717554.54004705</real>
+			<real>588085822.15059304</real>
 			<key>timeStoppedRecording</key>
-			<real>586717572.76612699</real>
+			<real>588086096.22302902</real>
 			<key>title</key>
 			<string>Building project prodex with scheme prodex and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>E76D9F9A-7145-411A-9F24-4B670D3CE44F</string>
+			<string>90A30983-02B0-4A0E-BC98-0928CC3BFD31</string>
 		</dict>
 	</dict>
 </dict>

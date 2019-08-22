@@ -2,16 +2,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Container, Header, Content, TabHeading, Tab, Tabs } from 'native-base';
-import { Button } from './Button';
-import { Logout } from './Logout';
-import firebase from 'firebase';
+import FriendsTab from './FriendsTab';
 import HomeTab from './HomeTab';
-
-// import Tab1 from './tabOne';
-// import Tab2 from './tabTwo';
-// import Tab3 from './tabThree';
-
-
 export default class MainScreen extends Component {
   constructor(props){
     super(props)
@@ -22,8 +14,10 @@ export default class MainScreen extends Component {
       }
     }
     
+
+    
     render() {
-    return (
+      return (
       <Container style={styles.container} email={this.props.email}>
         <Header style={{backgroundColor: `#EFEBE2` }} hasTabs />
         <Tabs tabBarUnderlineStyle={{backgroundColor: 'white' }}>
@@ -44,9 +38,7 @@ export default class MainScreen extends Component {
             tabStyle={{backgroundColor: `#EFEBE2`}}
             activeTabStyle={{backgroundColor: '#AB0552',tabBarUnderlineStyle: 'black'}}
             >
-            <Text>
-              this is where users can see their friends
-            </Text>
+            <FriendsTab Users={this.props.users} friends={this.props.users}/>
           </Tab>
           
         </Tabs>

@@ -36,7 +36,7 @@ const FBDatabase = {
             users.forEach(user=>{
                 userList[user[1][`name`]] = user[1][`email`]
             })
-            displayUsers(userList)
+            displayUsers(Object.entries(snapshot.toJSON()))
         })
     }
 }

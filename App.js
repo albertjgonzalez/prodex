@@ -24,7 +24,7 @@ export default class App extends Component {
       uid: '',
       providerData: '',
       beats:{},
-      users:[]
+      users:{}
     }
   }
   
@@ -57,7 +57,7 @@ export default class App extends Component {
         uid:success.user.uid,
       })
       FBDatabase.getUsers(this.database,users=>{
-        this.setState({users})
+        this.setState({users:users})
       })
       FBDatabase.getBeats(this.database,this.state.uid,beats => {
         this.setState({beats:beats})
@@ -121,7 +121,6 @@ export default class App extends Component {
   }
   
   renderCurrentState() {
-    
     const resizeMode = 'center';
 
     if (this.state.loggedIn) {
