@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, ActivityIndicator, View, Text, Linking } from 'react-native';
+import { StyleSheet, ActivityIndicator, View, Text, Linking} from 'react-native';
+import { Container, Header, Content, Accordion } from 'native-base';
+import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
 
 
 export default class HomeTab extends Component  {
@@ -9,22 +11,36 @@ export default class HomeTab extends Component  {
             beats:this.props.beats
         }
     }
+
     renderBeatList(beats){
-      console.log(beats)
-      return Object.entries(beats).map(pack =>
-      <View>
-        <Text style={{fontSize:20}}>{pack[1][0]}</Text>
-        {Object.entries(pack[1][1]).map(beat =>{
-            return (
-                <Text
-                onPress={() => {Linking.openURL(beat[1])}}
-                style={{fontSize:10}}>
-                {beat[0]}
-                </Text>
-            )
-        })}
-      </View>  
+      console.log('beats')
+      return (
+        <Collapse>
+        <CollapseHeader>
+          <View>
+            <Text>Click here</Text>
+          </View>
+        </CollapseHeader>
+        <CollapseBody>
+          <Text>Ta daa!</Text>
+        </CollapseBody>
+    </Collapse>
       )
+      // return Object.entries(beats).map(pack =>
+        
+      // <View>
+      //   <Text style={{fontSize:20}}>{pack[1][0]}</Text>
+      //   {Object.entries(pack[1][1]).map(beat =>{
+      //       return (
+      //           <Text
+      //           onPress={() => {Linking.openURL(beat[1])}}
+      //           style={{fontSize:10}}>
+      //           {beat[0]}
+      //           </Text>
+      //       )
+      //   })}
+      // </View>  
+      // )
 
     }
     renderCurrentState() {
@@ -44,7 +60,7 @@ export default class HomeTab extends Component  {
         return (
           <View style={styles.container}>
               <Text style={styles.Header}>My Beats</Text>
-            {this.renderCurrentState()}
+              {this.renderCurrentState()}
           </View>
     
         );
@@ -53,12 +69,12 @@ export default class HomeTab extends Component  {
     }
     const styles = StyleSheet.create({
         beatList:{
-            backgroundColor: `#EFEBE2`,
+            backgroundColor: `white`,
             color:`white`,
             justifyContent: 'center',
         },
         container: {
-            backgroundColor: `#EFEBE2`,
+            backgroundColor: `white`,
             flex:1
           },
           Header:{

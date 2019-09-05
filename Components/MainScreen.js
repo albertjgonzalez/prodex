@@ -19,24 +19,24 @@ export default class MainScreen extends Component {
     render() {
       return (
       <Container style={styles.container} email={this.props.email}>
-        <Header style={{backgroundColor: `#EFEBE2` }} hasTabs />
+        <Header style={{backgroundColor: `#a56cc1` }} hasTabs />
         <Tabs tabBarUnderlineStyle={{backgroundColor: 'white' }}>
         <Tab 
             heading={'my music'}
             activeTextStyle={{ color: 'black', fontWeight: 'bold' }}
             textStyle={{ color: 'grey', fontWeight: 'bold' }}
-            tabStyle={{backgroundColor: `#EFEBE2`}}
-            activeTabStyle={{backgroundColor: '#AB0552',tabBarUnderlineStyle: 'black'}}
+            tabStyle={{backgroundColor: `#cefff1`}}
+            activeTabStyle={{backgroundColor: '#ace7ef',tabBarUnderlineStyle: 'black'}}
             >
-            <HomeTab style={{backgroundColor: `#EFEBE2`}} Beats={this.props.beats}/>
+            <HomeTab style={{backgroundColor: `#cefff1`}} Beats={this.props.beats}/>
           </Tab>
           <Tab 
             heading={'friends'}
             users={this.state.users}
             activeTextStyle={{ color: 'black', fontWeight: 'bold' }}
             textStyle={{ color: 'grey', fontWeight: 'bold' }}
-            tabStyle={{backgroundColor: `#EFEBE2`}}
-            activeTabStyle={{backgroundColor: '#AB0552',tabBarUnderlineStyle: 'black'}}
+            tabStyle={{backgroundColor: `#cefff1`}}
+            activeTabStyle={{backgroundColor: '#ace7ef',tabBarUnderlineStyle: 'black'}}
             >
             <FriendsTab Users={this.props.users} friends={this.props.users}/>
           </Tab>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: `#EFEBE2`,
+    backgroundColor: `#a56cc1`,
     flex:1
   }
 });

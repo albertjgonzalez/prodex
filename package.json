@@ -7,9 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "accordion-collapse-react-native": "^0.1.11",
     "firebase": "^6.2.2",
     "firebase-admin": "^8.2.0",
-    "native-base": "^2.12.1",
+    "native-base": "^2.13.5",
     "react": "16.8.3",
     "react-native": "0.59.9"
   },

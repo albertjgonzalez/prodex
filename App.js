@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View, Image} from 'react-native';
-import { Button } from 'native-base';
+import { Button, Container } from 'native-base';
 import MainScreen from './Components/MainScreen';
 import * as firebase from 'firebase';
 import { Input } from './Components/Input';
-import { Login } from './Components/Login';
 import FBDatabase from './Components/FBDatabase'
 
 export default class App extends Component {
@@ -138,28 +137,35 @@ export default class App extends Component {
     if (!this.state.loggedIn && !this.state.creatingUser) {
       return (
         <View style={styles.form}>
-          
+          <Image
+          style={{width: 270, height: 200,resizeMode: 'stretch',marginBottom:40,marginTop:60}}
+          source={require('./img/logo-2.png')}
+        />
+
           <Input placeholder={'Enter Email'}
+            color={'white'}
             label={'Email'}
             onChangeText={email => this.setState({ loginEmail: email })}
             value={this.state.loginEmail}
             />
           <Input placeholder={'Enter Password'}
-            style={{fontSize:30}}
+            color={'white'}
             label={'Password'}
             onChangeText={password => this.setState({ password })}
             value={this.state.password}
             secureTextEntry
             />
+          <Container style={{marginLeft:0,marginTop:50,height:30}}>
 
-          <Button style={styles.submitButton} title='Log In' color='black' onPress={() => this.onPressSignIn()}>
-            <Text style={{color:'white', fontSize:28, fontWeight:'bold'}}>Log In</Text>
+          <Button style={styles.submitButton} title='Log In' color='white' onPress={() => this.onPressSignIn()}>
+            <Text style={{color:'white', fontSize:24, fontWeight:'bold'}}>Log In</Text>
           </Button>
 
 
-          <Button style={styles.submitButton} title='Sign Up' color='black' onPress={() => this.createUser()}>
-          <Text style={{color:'white', fontSize:28, fontWeight:'bold'}}>Sign Up</Text>
+          <Button style={styles.submitButton} title='Sign Up' color='white' onPress={() => this.createUser()}>
+          <Text style={{color:'white', fontSize:24, fontWeight:'bold'}}>Sign Up</Text>
           </Button>
+          </Container>
         </View>
 
 );
@@ -169,23 +175,26 @@ if (!this.state.loggedIn && this.state.creatingUser) {
     <View style={styles.createUserForm}>
           {/* <MainScreen /> */}
           <Input placeholder={'Enter Name'}
+            color={'black'}
             label={'Name'}
             onChangeText={name => this.setState({ displayName:name })}
             value={this.state.displayName}
           />
           <Input placeholder={'Enter Email'}
+            color={'black'}
             label={'Email'}
             onChangeText={email => this.setState({ loginEmail: email })}
             value={this.state.loginEmail}
             />
           <Input placeholder={'Enter Password'}
+            color={'black'}
             label={'Password'}
             onChangeText={password => this.setState({ password })}
             value={this.state.password}
             secureTextEntry
           />
           <Button style={styles.submitButton} title='Sign Up' color='black' onPress={() => this.onPressSignUp()}>
-            <Text style={{color:'white', fontSize:28, fontWeight:'bold'}}>Sign Up</Text>
+            <Text style={{color:'black', fontSize:24, fontWeight:'bold'}}>Sign Up</Text>
           </Button>
           
         </View>
@@ -206,9 +215,10 @@ if (!this.state.loggedIn && this.state.creatingUser) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: `#EFEBE2`,
+    backgroundColor: `white`,
     flex: 1,
     padding: 20,
+    paddingTop:50,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row'
@@ -217,7 +227,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding:20
+    padding:20,
+    paddingTop: 10
   },
   createUserForm: {
     flex: 1,
@@ -226,7 +237,7 @@ const styles = StyleSheet.create({
     padding:20
   },
   submitButton: {
-    backgroundColor:'#AB0552',
+    backgroundColor:'#A6ACEC',
     height:60,
     width: 250,
     marginTop:10,
